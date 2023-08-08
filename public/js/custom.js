@@ -126,11 +126,13 @@ $(document).ready(function() {
 
 $(document).ready(function (){
     $("#myTable").DataTable({
-        "paging": true, 
+        paging: true, 
+        dom: 'Bfrtip',
         buttons: [
-            'csv', 
-            'excel',
-            
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
         ]
     });
 })
