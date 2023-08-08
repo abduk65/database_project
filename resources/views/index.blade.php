@@ -290,85 +290,84 @@
             </div>
         </div>
     </header>
-    <aside class="sidebar-part">
-        <div class="sidebar-body">
-            <div class="sidebar-header">
-                <a href="index.html" class="sidebar-logo"><img src="images/logo.png" alt="logo" /></a><button
-                    class="sidebar-cross"><i class="fas fa-times"></i></button>
+    <div class="sidebar-body">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo"><img src="images/logo.png" alt="logo" /></a><button
+                class="sidebar-cross"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-profile">
+                <a href="#" class="sidebar-avatar"><img src="images/avatar/01.jpg" alt="avatar" /></a>
+                <h4><a href="#" class="sidebar-name">Jackon Honson</a></h4>
+                <a href="ad-post.html" class="btn btn-inline sidebar-post"><i
+                        class="fas fa-plus-circle"></i><span>Find Contact</span></a>
             </div>
-            <div class="sidebar-content">
-                <div class="sidebar-profile">
-                    <a href="#" class="sidebar-avatar"><img src="images/avatar/01.jpg" alt="avatar" /></a>
-                    <h4><a href="#" class="sidebar-name">Jackon Honson</a></h4>
-                    <a href="ad-post.html" class="btn btn-inline sidebar-post"><i
-                            class="fas fa-plus-circle"></i><span>Find Contact</span></a>
-                </div>
-                <div class="sidebar-menu">
-                    <ul class="nav nav-tabs">
-                        <li>
-                            <a href="#main-menu" class="nav-link active" data-toggle="tab">Main Menu</a>
+            <div class="sidebar-menu">
+                <ul class="nav nav-tabs">
+                    <li>
+                        <a href="#main-menu" class="nav-link active" data-toggle="tab">Main Menu</a>
+                    </li>
+                    <li>
+                        <a href="#author-menu" class="nav-link" data-toggle="tab">My Menu</a>
+                    </li>
+                </ul>
+                <div class="tab-pane active" id="main-menu">
+                    <ul class="navbar-list">
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="index.html">Home</a>
                         </li>
-                        <li>
-                            <a href="#author-menu" class="nav-link" data-toggle="tab">My Menu</a>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="index.html">Register</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="index.html">Pricing</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="index.html">Blogs</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="index.html">About Us</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="index.html">Contact Us</a>
                         </li>
                     </ul>
-                    <div class="tab-pane active" id="main-menu">
-                        <ul class="navbar-list">
-                            <li class="navbar-item">
-                                <a class="navbar-link" href="index.html">Home</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a class="navbar-link" href="index.html">Register</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a class="navbar-link" href="index.html">Pricing</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a class="navbar-link" href="index.html">Blogs</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a class="navbar-link" href="index.html">About Us</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a class="navbar-link" href="index.html">Contact Us</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane" id="author-menu">
-                        <ul class="navbar-list">
-                            <li class="navbar-item">
-                                <a class="navbar-link" href="dashboard.html">Dashboard</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a class="navbar-link" href="profile.html">Profile</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a class="navbar-link" href="profile.html">Search Database</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a class="navbar-link" href="profile.html">List Company</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a class="navbar-link" href="profile.html">Settings</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a class="navbar-link" href="profile.html">Message</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a class="navbar-link" href="profile.html">Notification</a>
-                            </li>
-                            <li class="navbar-item">
-                                <a class="navbar-link" href="profile.html">Logout</a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
-                <div class="sidebar-footer">
-                    All Copyrights Reserved © 2021 Taajer - Developed by
-                    <a href="https://dslab.in/">Dot Solutions Lab</a>
+                <div class="tab-pane" id="author-menu">
+                    <ul class="navbar-list">
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="dashboard.html">Dashboard</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="profile.html">Profile</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="profile.html">Search Database</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="profile.html">List Company</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="profile.html">Settings</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="profile.html">Message</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="profile.html">Notification</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="profile.html">Logout</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
+            <div class="sidebar-footer">
+                All Copyrights Reserved © 2021 Taajer - Developed by
+                <a href="https://dslab.in/">Dot Solutions Lab</a>
+            </div>
         </div>
+    </div>
     </aside>
     <nav class="mobile-nav">
         <div class="container">
