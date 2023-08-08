@@ -50,8 +50,13 @@ class User extends Authenticatable implements FilamentUser
         return true;
     }
 
-    function data()
+    public function data()
     {
         return $this->hasMany(Data::class);
+    }
+
+    public function subsribe()
+    {
+        return $this->belongsTo(Subsriber::class);
     }
 }

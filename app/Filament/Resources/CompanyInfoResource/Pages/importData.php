@@ -10,6 +10,7 @@ class importData extends Page
     protected static string $resource = CompanyInfoResource::class;
 
     protected static string $view = 'filament.resources.company-info-resource.pages.import-data';
+
     
 
 }
