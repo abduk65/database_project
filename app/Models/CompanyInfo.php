@@ -13,6 +13,25 @@ class CompanyInfo extends Model
     protected $guarded = [];
     public $timestamps = false;
 
+    protected $searchable = [
+        'Prefix',
+        'numberOfRecords',
+        'price',
+    ];
+
+    public function search($searchQuery)
+    {
+        return $this->where(function ($query) use ($searchQuery) {
+            $query->where('Prefix', 'like', '%' . $searchQuery . '%');
+            $query->orWhere('Person_Name', 'like', '%' . $searchQuery . '%');
+            $query->orWhere('Job_Title', 'like', '%' . $searchQuery . '%');
+            $query->orWhere('Email', 'like', '%' . $searchQuery . '%');
+            $query->orWhere('Website', 'like', '%' . $searchQuery . '%');
+            $query->orWhere('Company_Name', 'like', '%' . $searchQuery . '%');
+            $query->orWhere('Phone_Number', 'like', '%' . $searchQuery . '%');
+        });
+    }
+
     public static function import(array $row)
     {
         $companyInfo = new CompanyInfo();

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\CompanyInfo;
 use App\Http\Requests\StoreCompanyInfoRequest;
 use App\Http\Requests\UpdateCompanyInfoRequest;
+use App\Models\Package;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class CompanyInfoController extends Controller
 {
@@ -19,8 +21,14 @@ class CompanyInfoController extends Controller
 
     public function table(Request $request)
     {
-        $records = CompanyInfo::all();
-        return view('table', compact('records'));
+        $package = $request->attributes->get('package');
+        if ($package->id == 1) {
+            $records = CompanyInfo::all();
+        } else {
+            $count = $package->allowed_count;
+            $records = CompanyInfo::limit($count)->get();
+        }
+        return view('table', compact('records', 'package'));
     }
     /**
      * Show the form for creating a new resource.

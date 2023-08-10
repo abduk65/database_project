@@ -9,8 +9,15 @@ class Subscriber extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     function user()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
+    }
+
+    function package()
+    {
+        return $this->belongsTo(Package::class);
     }
 }
