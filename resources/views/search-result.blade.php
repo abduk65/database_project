@@ -14,13 +14,11 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-                                                        <script src="js/html5shiv.js"></script>
-                                                        <script src="js/respond.min.js"></script>
-                                                        <![endif]-->
+                                <script src="js/html5shiv.js"></script>
+                                <script src="js/respond.min.js"></script>
+                                <![endif]-->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
-    <link rel="stylesheet" href="
-    https://cdn.datatables.net/select/1.7.0/css/select.dataTables.min.css">
     <style>
         .cart_count {
             color: #273a77;
@@ -58,7 +56,6 @@
             <table id="myTable" class="table">
                 <thead>
                     <tr>
-                        <th></th>
                         <th>prefix</th>
                         <th>name</th>
                         <th>job title</th>
@@ -67,18 +64,13 @@
                         <th>company name</th>
                         <th>phone number</th>
                         <th>business Type</th>
-                        <th>view</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($records as $single)
+                    @foreach ($result as $single)
                         <tr>
-                            <td></td>
-
-                            <a href="{{ route('single-company-info', $single->id) }}">
-                                <td>{{ $single->Prefix }}</td>
-                            </a>
+                            <td>{{ $single->Prefix }}</td>
                             <td>{{ $single->Person_Name }}</td>
                             <td>{{ $single->Job_Title }}</td>
                             <td>{{ $single->Email }}</td>
@@ -86,8 +78,6 @@
                             <td>{{ $single->Company_Name }}</td>
                             <td>{{ $single->Phone_Number }}</td>
                             <td>{{ $single->Bussiness_Type }}</td>
-                            <td><a href="{{ route('single-company-info', $single->id) }}">View</a></td>
-
                         </tr>
                     @endforeach
                 </tbody>
@@ -104,7 +94,6 @@
     {{-- <script src="js/angular.min.js"></script> --}}
     <script src="js/bootstrap.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
-    <script src="https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js"></script>
     @if ($package->unlimited == true)
         <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>

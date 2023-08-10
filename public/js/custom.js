@@ -125,14 +125,78 @@ $(document).ready(function() {
 
 
 $(document).ready(function (){
-    $("#myTable").DataTable({
+  var myTable =   $("#myTable").DataTable({
         paging: true, 
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
             'excelHtml5',
             'csvHtml5',
-            'pdfHtml5'
-        ]
+            'pdfHtml5',
+            {
+                text: 'Email',
+                className: 'email-btn',
+                action: customButton
+            }
+        ],
+        columnDefs: [
+            {
+                orderable: false,
+                className: 'select-checkbox',
+                targets: 0
+            }
+        ],
+        select: {
+            style: 'multiple',
+            selector: 'td'
+        },
+        order: [[1, 'asc']]
     });
+
+    myTable.on('select', function() 
+    {
+        if (myTable.rows('.selected').length > 0) {
+            
+        } else {
+            myTable.buttons().remove('deleteSelectedRows');
+        }
+    });
+
+
 })
+
+function customButton(e, dt, node, config) {
+    var data = dt.row(node.parentNode).data();
+
+    console.log(data)
+          // Create a new email form
+          var form = document.createElement('form');
+          form.action = 'mailto:' + data.email;
+          form.method = 'post';
+
+          // Add the email subject and body to the form
+          var subject = document.createElement('input');
+          subject.type = 'text';
+          subject.name = 'subject';
+          subject.placeholder = 'Subject';
+
+          var body = document.createElement('textarea');
+          body.name = 'body';
+          body.placeholder = 'Body';
+
+          form.appendChild(subject);
+          form.appendChild(body);
+
+          // Display the email form in a popup
+          var popup = window.open('', 'Email', 'width=500,height=300');
+          popup.document.body.appendChild(form);
+}
+
+function deleteSelectedRows(tableId) {
+    const table = $("#" + tableId).DataTable();
+    const selectedRows = table.rows({selected: true});
+
+    if (confirm("Are you sure you want to delete the selected rows?")) {
+        table.rows('.selected').remove();
+    }
+}

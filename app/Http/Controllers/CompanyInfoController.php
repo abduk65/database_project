@@ -38,6 +38,12 @@ class CompanyInfoController extends Controller
         //
     }
 
+    public function single(Request $request, $id)
+    {
+        $singleCompanyInfo = CompanyInfo::find($id)->first();
+        return view('single-company-info', compact('singleCompanyInfo'));
+    }
+
     /**
      * Store a newly created resource in storage.
      */

@@ -1,5 +1,18 @@
 @extends('layouts.app')
 
+@section('styles')
+    <style>
+        .home-table {
+
+            border-collapse: collapse;
+            border-collapse: collapse;
+            border-radius: 13px;
+            overflow: hidden;
+            box-shadow: 3px 1px 35px #999898;
+        }
+    </style>
+@endsection
+
 @section('content')
     <section class="c3" style="height: 600px">
         <div class="container">
@@ -53,7 +66,7 @@
                             </p>
                             <br>
                             <!--<a href="#request" class="hs2" data-toggle="modal" data-target="#myModal">Buy Now</a>
-                                          <a href="#request" class="hs1" data-toggle="modal" data-target="#myModal">Register</a> -->
+                                                                                  <a href="#request" class="hs1" data-toggle="modal" data-target="#myModal">Register</a> -->
 
                         </div>
                     </div>
@@ -71,7 +84,7 @@
                             </p>
                             <br>
                             <!--<a href="#request" class="hs1" data-toggle="modal" data-target="#myModal"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy Now</a>
-                                          <a href="#request" class="hs2" data-toggle="modal" data-target="#myModal">Register</a> </div>-->
+                                                                                  <a href="#request" class="hs2" data-toggle="modal" data-target="#myModal">Register</a> </div>-->
                         </div>
                     </div>
                     <!-- Left and right controls -->
@@ -89,11 +102,12 @@
     <section class="suggest-part">
         <div class="container">
             <div class="suggest-slider slider-arrow">
-                <a href="{{ route('logout') }}" class="suggest-card"><img src="images/suggest/automobile.png"
-                        alt="car" />
-                    <h6>automobile</h6>
-                    <p>(4,521)</p>
-                </a>
+                @foreach ($categories as $category)
+                    <a href="#" class="suggest-card"><img src="images/suggest/automobile.png" alt="car" />
+                        <h6>{{ $category->Bussiness_Type }}</h6>
+                        <p>(4,521)</p>
+                    </a>
+                @endforeach
             </div>
         </div>
     </section>
@@ -169,58 +183,53 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                @foreach ($packages as $package)
-                    <div class="col-md-6 col-lg-6">
-                        <div class="price-card">
-                            <div class="price-head">
-                                <i class="flaticon-bicycle"></i>
-                                <h3>${{ $package->price }}</h3>
-                                <h4>{{ $package->name }}</h4>
-                            </div>
-                            <ul class="price-list">
-                                <li>
-                                    <i class="fas fa-plus"></i>
-                                    <p>1 Regular Ad for 7 days</p>
-                                </li>
-                                <li>
-                                    <i class="fas fa-times"></i>
-                                    <p>No Credit card required</p>
-                                </li>
-                                <li>
-                                    <i class="fas fa-times"></i>
-                                    <p>No Top or Featured Ad</p>
-                                </li>
-                                <li>
-                                    <i class="fas fa-times"></i>
-                                    <p>No Ad will be bumped up</p>
-                                </li>
-                                <li>
-                                    <i class="fas fa-plus"></i>
-                                    <p>Limited Support</p>
-                                </li>
-                            </ul>
-                            <div class="price-btn">
-                                <a href="user-form.html" class="btn btn-inline"><i
-                                        class="fas fa-sign-in-alt"></i><span>Register Now</span></a>
+            @guest
+
+                <div class="row">
+                    @foreach ($packages as $package)
+                        <div class="col-md-6 col-lg-6">
+                            <div class="price-card">
+                                <div class="price-head">
+                                    <i class="flaticon-bicycle"></i>
+                                    <h3>${{ $package->price }}</h3>
+                                    <h4>{{ $package->name }}</h4>
+                                </div>
+                                <ul class="price-list">
+                                    <li>
+                                        <i class="fas fa-plus"></i>
+                                        <p>1 Regular Ad for 7 days</p>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-times"></i>
+                                        <p>No Credit card required</p>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-times"></i>
+                                        <p>No Top or Featured Ad</p>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-times"></i>
+                                        <p>No Ad will be bumped up</p>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-plus"></i>
+                                        <p>Limited Support</p>
+                                    </li>
+                                </ul>
+                                <div class="price-btn">
+                                    <a href="user-form.html" class="btn btn-inline"><i
+                                            class="fas fa-sign-in-alt"></i><span>Register Now</span></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
 
-            </div>
+                </div>
+            @endguest
         </div>
     </section>
-    <section class="mt-5 mb-5 px-5">
-        <table
-            style="
-          border-collapse: collapse;
-          border-collapse: collapse;
-          border-radius: 13px;
-          overflow: hidden;
-          box-shadow: 3px 1px 35px #999898;
-        "
-            class="table table-striped table-bordered">
+    <section class="mt-5 mb-5 px-5 home-table">
+        <table class="table table-striped table-bordered">
             <thead>
                 <tr class="table-primary">
                     <th scope="col">Company Name</th>
@@ -231,48 +240,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Saudi Arabia Oil Company</td>
-                    <td>Oil & Gas</td>
-                    <td>Hussein Manahil</td>
-                    <td>Designer</td>
-                    <td><a href="#">view</a></td>
-                </tr>
-                <tr>
-                    <td>Groupon</td>
-                    <td>Agriculture & Forestry</td>
-                    <td>Abeer Arij</td>
-                    <td>Astronomer</td>
-                    <td><a href="#">view</a></td>
-                </tr>
-                <tr>
-                    <td>Influitive</td>
-                    <td>Consumer</td>
-                    <td>Maaz Nihal</td>
-                    <td>Cost Control Analyst</td>
-                    <td><a href="#">view</a></td>
-                </tr>
-                <tr>
-                    <td>Technologent</td>
-                    <td>Financial Services</td>
-                    <td>Hussein Ammar</td>
-                    <td>Architect</td>
-                    <td><a href="#">view</a></td>
-                </tr>
-                <tr>
-                    <td>Omnilert</td>
-                    <td>Automotive</td>
-                    <td>Haroon Bushra</td>
-                    <td>Scientist</td>
-                    <td><a href="#">view</a></td>
-                </tr>
-                <tr>
-                    <td>Securiteam</td>
-                    <td>Aerospace & Defense</td>
-                    <td>Osama Hussein</td>
-                    <td>Engineer</td>
-                    <td><a href="#">view</a></td>
-                </tr>
+                @foreach ($sampleData as $sample)
+                    <tr>
+                        <td>{{ $sample->Company_Name }}</td>
+                        <td>{{ $sample->Bussiness_Type }}</td>
+                        <td>{{ $sample->Person_Name }}</td>
+                        <td>{{ $sample->Company_Name }}</td>
+                        <td><a href="{{ route('single-company-info', $sample->id) }}">view</a></td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </section>

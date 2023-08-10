@@ -30,20 +30,23 @@ Route::post('/register-post', [RegisterController::class, 'store'])->name('regis
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login-post', [LoginController::class, 'store'])->name('login_post');
 
-Route::post('search', [IndexController::class, 'search'])->name('search');
+Route::get('search', [IndexController::class, 'search'])->name('search');
 
 Route::get(
     '/profile',
     [LoginController::class, 'profile']
 )->name('profile');
 
-Route::get('/logout', function () {
-    $success = Auth::logout();
-    return $success;
-})->name('logout');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::post('/profile/update', [LoginController::class, 'updateProfile'])->name('profile.update');
+
+Route::get('profile', [LoginController::class, 'profile'])->name('profile');
 
 Route::get('/table', [CompanyInfoController::class, 'table'])
     ->name('table')->middleware(['auth', PackageMiddleware::class]);
+
+Route::get('company-info/{id}', [CompanyInfoController::class, 'single'])->name('single-company-info');
 
 Route::get('/packages', [IndexController::class, 'packages'])->name('packages');
 
@@ -54,46 +57,43 @@ Route::get('/cancel', [SubscriberController::class, 'cancel'])->name('cancel');
 Route::post('/webhook', [SubscriberController::class, 'webhook'])->name('webhook');
 
 
-Route::get('faq', function () {
-    return view('faq');
-});
+// Route::get('faq', function () {
+//     return view('faq');
+// });
 
-Route::get('aboutus', function () {
-    return view('aboutus');
-});
+// Route::get('aboutus', function () {
+//     return view('aboutus');
+// });
 
-Route::get('contact', function () {
-    return view('contact');
-});
+// Route::get('contact', function () {
+//     return view('contact');
+// });
 
-Route::get('packages', function () {
-    return view('packages');
-});
+// Route::get('packages', function () {
+//     return view('packages');
+// });
 
-Route::get('refund', function () {
-    return view('refund');
-});
+// Route::get('refund', function () {
+//     return view('refund');
+// });
 
-Route::get('cities', function () {
-    return view('cities');
-});
+// Route::get('cities', function () {
+//     return view('cities');
+// });
 
-Route::get('contacta', function () {
-    return view('contacta');
-});
+// Route::get('contacta', function () {
+//     return view('contacta');
+// });
 
-Route::get('dashboard', function () {
-    return view('dashboard');
-});
+// Route::get('dashboard', function () {
+//     return view('dashboard');
+// });
 
-Route::get('profile', function () {
-    return view('profile');
-});
 
-Route::get('setting', function () {
-    return view('setting');
-});
+// Route::get('setting', function () {
+//     return view('setting');
+// });
 
-Route::get('ad-post', function () {
-    return view('excerpts.ad-post');
-});
+// Route::get('ad-post', function () {
+//     return view('excerpts.ad-post');
+// });
